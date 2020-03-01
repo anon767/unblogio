@@ -1,0 +1,16 @@
+<div id="container" xmlns:v-if="http://www.w3.org/1999/xhtml" xmlns:v-on="http://www.w3.org/1999/xhtml">
+    <Welcome></Welcome>
+    <div v-if="error" class="ui negative message">
+        <i v-on:click="error=''" class="close icon"></i>
+        <div class="header">
+            An error occured!
+        </div>
+        <p>
+            {{error}}
+        </p>
+    </div>
+    <div id="content" class="ui three stackable cards">
+        <Card v-for="(item, index) in posts" :post="item"></Card>
+    </div>
+</div>
+

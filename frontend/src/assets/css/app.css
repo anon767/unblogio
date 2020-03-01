@@ -1,0 +1,334 @@
+#app {
+    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    background-color: #f6f6f6;
+}
+
+#nav {
+    padding: 30px;
+}
+
+#nav a {
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+#nav a.router-link-exact-active {
+    color: #42b983;
+}
+
+#container {
+    margin: 80px 5px 5px;
+
+}
+
+#comments {
+    background-color: white;
+    min-width: 80% !important;
+    min-height: 95%;
+    margin: 50px 10% 20% !important;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+#content {
+    margin-left: 10%;
+}
+
+.readmore {
+    font-weight: bold;
+    color: #4e6277;
+}
+
+.custom_content {
+    display: block;
+    margin-left: 10px !important;
+    margin-right: 10px !important;
+    padding: 15px 0 0 420px !important;
+    min-height: 20px;
+
+}
+
+.custom_image {
+    float: left;
+    max-width: 400px;
+    box-shadow: 0px 0 3px 0px #333;
+}
+
+.recursiveElement {
+    border-left: 1px dashed lightgray;
+    margin-left: 20px;
+    padding-left: 20px;
+}
+
+
+.searchItem {
+    width: 50%;
+}
+
+.searchInput {
+    width: 50%;
+}
+
+
+.header {
+    text-align: left;
+    margin-bottom: 1em;
+}
+
+
+.meta {
+    text-align: center;
+    margin-bottom: 10px;
+
+}
+
+.description {
+    display: contents;
+}
+
+
+.grid-item {
+    max-width: 33%;
+    padding: 5px;
+}
+
+.mosaicIcon {
+    width: 14px !important;
+}
+
+.blogList {
+    float: left;
+    margin-top: 50px !important;
+    margin-left: 20px !important;
+    width: auto;
+    text-align: left !important;
+}
+
+.blogContent {
+    float: right;
+    width: 70%;
+}
+
+.monthInfo {
+    margin-bottom: 30px !important;
+}
+
+.image_header {
+    max-width: 200px;
+    float: left;
+}
+
+.custom_content, #post_container {
+    font-size: 18px !important;
+}
+
+#post_container {
+    background-color: white;
+    min-width: 80% !important;
+    min-height: 95%;
+    margin: 80px 10% 10% !important;
+    padding: 20px;
+    border-radius: 5px;
+    width: auto;
+}
+
+.clearfix::before,
+.clearfix::after {
+    content: " ";
+    display: table;
+}
+
+.clearfix::after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1; /* Für den IE6 und IE7 */
+}
+
+.post_title {
+    font-size: x-large;
+}
+
+.post_author {
+    display: block;
+}
+
+.post_date {
+    display: block;
+}
+
+.post_header {
+    text-align: left;
+}
+
+.post_meta {
+    margin-left: 220px;
+
+}
+
+.post_owner {
+    bottom: 0;
+    position: absolute;
+    margin-right: 20px;
+    margin-left: 2px;
+    right: 0;
+}
+
+.post_content {
+    margin-top: 30px;
+    text-align: left;
+}
+
+.previewImage {
+    border-radius: 5px;
+}
+
+.followerlabel, .followerValue {
+    font-size: 10px !important;
+}
+
+.ribbon {
+    z-index: 10000;
+    top: -0.8rem !important;
+}
+
+.meta_post {
+    margin-bottom: 50px;
+    float: left;
+    padding: 20px;
+}
+
+.blog_header {
+    font-size: 50px;
+    font-weight: 600;
+    margin-bottom: 50px !important;
+    display: inline;
+    float: left;
+}
+
+.commentAvatar {
+    border: 1px solid black;
+    margin-top: 5px;
+}
+
+.blogCard {
+    display: block !important;
+    width: auto !important;
+    text-align: left !important;
+    max-width: 75% !important;
+    min-width: 80% !important;
+}
+
+.blogCard:hover {
+    margin-left: 5px !important;
+    box-shadow: 2px 2px 2px grey !important;
+}
+
+
+.mosaicItem:hover {
+    margin-left: 5px !important;
+    padding: 0;
+}
+
+.editCard {
+    width: auto !important;
+    text-align: left !important;
+
+}
+
+.teaserPreview {
+    max-width: 400px;
+}
+
+.teaserPreview:hover {
+    margin-left: 10px !important;
+    box-shadow: 5px 5px 5px grey !important;
+}
+
+#rating_container {
+    margin-top: 50px;
+    float: right;
+}
+
+@media only screen and (min-width: 1200px) {
+    .ui.container {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .content {
+        float: none;
+        display: inline-block;
+        padding: 10px 0 !important;
+        margin: 0;
+    }
+
+    #content {
+        margin-left: 0;
+    }
+
+    .logo_text {
+        display: none !important;
+    }
+
+    .card {
+        min-width: auto !important;
+        max-width: 95% !important;
+    }
+
+    .image {
+        max-width: unset;
+    }
+
+    #post_container {
+        margin: 80px 5% 5% !important;
+    }
+
+    .comments {
+        margin: 80px 5% 5% !important;
+    }
+
+    .custom_image {
+        width: 100%;
+    }
+
+    .blogList {
+        display: none !important;
+    }
+}
+
+@media only screen and (max-width: 1150px) {
+    .list {
+        display: none !important;
+    }
+
+    .blogList {
+        margin-top: 5px !important;
+    }
+
+    .blogContent {
+        float: none;
+        width: 100% !important;
+        max-width: initial !important;
+    }
+
+    .blogCard {
+        width: 100% !important;
+        max-width: initial !important;
+    }
+}

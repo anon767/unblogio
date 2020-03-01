@@ -1,0 +1,25 @@
+<div id="rating_container" class="" xmlns:v-on="http://www.w3.org/1999/xhtml">
+
+    <div class="ui statistics">
+        <div class="statistic">
+            <div class="value">
+                {{rating.rating}}
+            </div>
+
+            <div class="label">
+                Faves
+                <div class="ui heart rating" data-max-rating="1" v-on:click="rate()"></div>
+            </div>
+        </div>
+        <div class="statistic">
+            <div class="value">
+                {{post.views}}
+            </div>
+            <div class="label">
+                Views
+            </div>
+        </div>
+    </div>
+
+</div>
+

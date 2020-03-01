@@ -1,0 +1,21 @@
+<div id="container" xmlns:v-on="http://www.w3.org/1999/xhtml">
+    <Welcome></Welcome>
+    <div v-if="error" class="ui negative message">
+        <i v-on:click="error=''" class="close icon"></i>
+        <div class="header">
+            An error occured!
+        </div>
+        <p>
+            {{error}}
+        </p>
+    </div>
+    <div id="mosaicContent">
+        <div class="grid">
+            <div v-for="(item, index) in posts">
+                <img v-on:click="$router.push(posts[index].createURL())" @load="handleLoad()" @error="handleLoad()"
+                     class="grid-item mosaicItem" :src="item.image"/>
+            </div>
+        </div>
+    </div>
+</div>
+

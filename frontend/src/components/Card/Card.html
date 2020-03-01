@@ -1,0 +1,13 @@
+<div class="card blogCard" v-on:click="$router.push(post.createURL())" xmlns:v-on="http://www.w3.org/1999/xhtml">
+    <div class="image custom_image">
+        <img :src="post.image">
+    </div>
+    <div class="content custom_content" v-if="post.body">
+        <div class="header">{{ post.title }}</div>
+        <div class="meta post_owner">{{ post.username }}</div>
+        <div class="description"
+             v-html="post.body.replace('<br>','').substr(0,this.MAX_TEASER_LENGTH)+'... <span class=readmore>read more</span>'">
+            No Content :(
+        </div>
+    </div>
+</div>

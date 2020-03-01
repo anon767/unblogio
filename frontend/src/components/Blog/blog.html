@@ -1,0 +1,44 @@
+<div id="container" xmlns:v-on="http://www.w3.org/1999/xhtml">
+    <div v-if="error" class="ui negative message">
+        <i v-on:click="error=''" class="close icon"></i>
+        <div class="header">
+            An error occured!
+        </div>
+        <p>
+            {{error}}
+        </p>
+    </div>
+
+    <div v-if="!this.error" class="blogList">
+        <div class="blog_meta">
+            <div class="blog_header">
+                <div class="ui fluid tiny image">
+                    <div class="ui lightblue ribbon label">
+                        {{this.follower.count}} Follower
+                        <div class="ui rating follow large" v-if="$store.getters.isLoggedIn" data-max-rating="1"
+                             v-on:click="follow()"></div>
+                    </div>
+                    <img :src="`https://avatars.dicebear.com/v2/avataaars/:${this.$route.params.id}.svg`"
+                         class="ui tiny avatar image"></div>
+
+                {{this.$route.params.id}}
+
+            </div>
+
+        </div>
+        <div class="ui tiny middle aligned animated list"
+             v-for="(month, month_index) in Array.from(sortedByMonth)">
+            <div class="monthInfo">{{getMonthByIndex(month[0])}}</div>
+            <div class="item" v-for="(item, index) in month[1]" v-on:click="$router.push(item.createURL())">
+                <img class="ui mini image previewImage" :src=item.image>
+                <div class="content">
+                    <div class="header">{{item.title}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="mosaicContent" class="blogContent ui three stackable cards">
+        <Card v-for="(item, index) in posts" :post="item"></Card>
+    </div>
+</div>
+

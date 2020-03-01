@@ -1,0 +1,70 @@
+<div id="post_container" class="ui main text container" xmlns:v-on="http://www.w3.org/1999/xhtml">
+    <div v-if="error" class="ui negative message">
+        <i v-on:click="error=''" class="close icon"></i>
+        <div class="header">
+            An error occured!
+        </div>
+        <p>
+            {{error}}
+        </p>
+    </div>
+    <div v-if="success" class="ui positive message">
+        <i v-on:click="success=''" class="close icon"></i>
+        <div class="header">
+            Yay!
+        </div>
+        <p>
+            {{success}}
+        </p>
+    </div>
+    <div v-if="info" class="ui warning message">
+        <i v-on:click="info=''" class="close icon"></i>
+        <div class="header">
+            Hand in there :)
+        </div>
+        <p>
+            {{info}}
+        </p>
+    </div>
+
+    <form action="#">
+        <div class="meta_post ui six cards">
+            <div class="card editCard">
+                <div class="image">
+                    <img :src="this.image" class="teaserPreview"
+                         v-on:click="imgUpload()">
+                </div>
+                <div class="content">
+                    <input type="file" id="imgupload" style="display:none"  @change="onFileChange" accept="image/*"/>
+                    <input type="text" class="ui large label" v-model="title" placeholder="Title">
+                    <input type="button" class="ui primary button" v-on:click="post()" value="publish">
+                    <input type="button" class="ui button" v-on:click="back()" value="cancel">
+
+                </div>
+            </div>
+            <div class="card editCard">
+                <div class="content">
+                    <div class="header">Important!</div>
+                    <div class="description">
+                        Please note following rules:
+                        <ul>
+                            <li>Do not upload images you do not own!</li>
+                            <li>Don't post illegal or discriminating content!</li>
+                            <li>Be polite.</li>
+                        </ul>
+                        How to create a good Blog Post?
+                        <ul>
+                            <li>Choose a high resolution <b>teaser</b> image.</li>
+                            <li>Structure your post.</li>
+                            <li>Use a describing title.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="clearfix"></div>
+        <div class="editor"></div>
+    </form>
+</div>
+

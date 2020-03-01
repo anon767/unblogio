@@ -1,0 +1,46 @@
+<span class="ui feed">
+    <div class="event" xmlns:v-on="http://www.w3.org/1999/xhtml">
+        <div class="label">
+            <img :src="`https://avatars.dicebear.com/v2/avataaars/:${this.comment.username}.svg`" class="avatar commentAvatar">
+        </div>
+        <div class="content">
+            <div class="summary">
+                <a :href="`#/blog/${this.comment.username}`">{{this.comment.username}}</a>
+                <div class="date">
+                    {{this.parseDate(this.comment.created_at)}}
+                </div>
+            </div>
+            <div class="extra text">
+                {{this.comment.content}}
+            </div>
+            <div class="meta">
+                <a class="like">
+                    <i class="plus icon"
+                       v-if="$store.getters.isLoggedIn && this.comment.username != $store.state.username"
+                       v-on:click="like()"></i> {{this.comment.likes}} Likes
+                </a>
+                <a>
+                    <i class="reply icon" v-on:click="propagateButtonClick" v-if="$store.getters.isLoggedIn"></i>
+                </a>
+            </div>
+            <div class="clearfix"></div>
+            <div v-if="this.reply" class="replyfield">
+                <div v-if="error" class="ui negative message">
+                    <i v-on:click="error=''" class="close icon"></i>
+                    <div class="header">
+                        An error occured!
+                    </div>
+                    <p>
+                        {{error}}
+                    </p>
+                </div>
+                <input type="text" class="ui label" placeholder="Reply" size="50" v-model="content"/>
+                <button class="ui tiny button" v-on:click="postComment()"><i class="paper plane icon"></i></button>
+            </div>
+        </div>
+    </div>
+    <div v-if="this.comment.children.length > 0" class="recursiveElement ">
+        <comment v-for="(item, index) in this.comment.children" :comment="item"></comment>
+    </div>
+</span>
+

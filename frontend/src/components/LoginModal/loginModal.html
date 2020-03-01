@@ -1,0 +1,51 @@
+<div id="loginModal" class="ui modal" xmlns:v-on="http://www.w3.org/1999/xhtml">
+    <i class="close icon"></i>
+    <div class="header">
+        Login
+    </div>
+    <div class="image content">
+        <div class="ui medium image">
+            <img src="https://semantic-ui.com/images/avatar2/large/rachel.png">
+        </div>
+        <div class="description">
+            <div v-if="!error" class="ui header">Log in :) !</div>
+            <div v-if="error" class="ui negative message">
+                <i v-on:click="error=''" class="close icon"></i>
+                <div class="header">
+                    An error occured!
+                </div>
+                <p>
+                    {{error}}
+                </p>
+            </div>
+            <div class="ui form">
+                <form action="#" autocomplete="on">
+                    <div class="equal width fields">
+                        <div class="field">
+                            <label>E-Mail</label>
+                            <input type="text" placeholder="E-Mail" autocomplete="username" size="40" v-model="email">
+                        </div>
+                    </div>
+                    <div class="equal width fields">
+                        <div class="field">
+                            <label>Password</label>
+                            <input type="password" placeholder="password" autocomplete="current-password" v-model="password">
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+
+        </div>
+    </div>
+    <div class="actions">
+        <div class="ui black deny button">
+            Nope
+        </div>
+        <div class="ui green right labeled icon button" v-on:click="login()">
+            Yep, that's me
+            <i class="checkmark icon"></i>
+        </div>
+    </div>
+</div>
+

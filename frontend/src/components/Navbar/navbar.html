@@ -1,0 +1,39 @@
+<div class="ui fixed menu" xmlns:v-on="http://www.w3.org/1999/xhtml">
+    <div class="ui container">
+        <a href="#/" v-on:click="home()" class="header item left">
+            <img class="logo" src="images/logo.png">
+            <span class="logo_text">Unblog.io</span>
+        </a>
+
+        <span class="item left searchItem">
+            <div class="ui icon input searchInput">
+                <input type="text" placeholder="#Hashtag" v-model="searchString"
+                       v-on:keyup.enter="search()">
+                <i class="inverted circular search link icon" v-on:click="search()"></i>
+            </div>
+        </span>
+
+
+        <a v-if="$store.getters.isLoggedIn" :href="'#/blog/'+$store.state.username+'/new'" class="ui simple item">
+            <i class="edit icon"></i>
+        </a>
+        <a href="#/mosaic" class="ui simple item">
+            NEW
+        </a>
+        <div class="ui simple dropdown item">
+
+            <i class="icon user"></i>
+
+            <div class="menu">
+                <a v-if="!$store.getters.isLoggedIn" class="item" href="#" v-on:click="openLoginModal()">Login</a>
+                <a v-if="!$store.getters.isLoggedIn" class="item" href="#" v-on:click="openRegisterModal()">Register</a>
+                <a v-if="$store.getters.isLoggedIn" class="item" :href="'#/blog/'+$store.state.username">Your Blog</a>
+                <a v-if="$store.getters.isLoggedIn" class="item" href="#" v-on:click="logout()">Logout</a>
+            </div>
+        </div>
+    </div>
+
+    <RegisterModal></RegisterModal>
+    <LoginModal></LoginModal>
+
+</div>

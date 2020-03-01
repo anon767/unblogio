@@ -1,0 +1,20 @@
+<div v-if="post" id="comments" class="ui main container" xmlns:v-on="http://www.w3.org/1999/xhtml">
+    <div class="replyfield">
+        <div v-if="error" class="ui negative message">
+            <i v-on:click="error=''" class="close icon"></i>
+            <div class="header">
+                An error occured!
+            </div>
+            <p>
+                {{error}}
+            </p>
+        </div>
+        <div v-if="$store.getters.isLoggedIn">
+            <input type="text" class="ui label" placeholder="Start a Thread" size="50" v-model="content"/>
+            <button class="ui tiny button" v-on:click="postComment()"><i class="paper plane icon"></i></button>
+        </div>
+    </div>
+    <div v-if="this.comments && this.comments.children.length > 0">
+        <comment v-for="(item, index) in this.comments.children" :comment="item"></comment>
+    </div>
+</div>

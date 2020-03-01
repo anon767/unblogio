@@ -1,0 +1,36 @@
+<div>
+    <div id="post_container" class="ui main text container" xmlns:v-on="http://www.w3.org/1999/xhtml">
+
+        <div v-if="error" class="ui negative message">
+            <i v-on:click="error=''" class="close icon"></i>
+            <div class="header">
+                An error occured!
+            </div>
+            <p>
+                {{error}}
+            </p>
+        </div>
+
+        <div v-if="!error && post != null">
+            <div class="post_header">
+                <img class="image_header ui avatar" :src="post.image">
+                <div class="post_meta">
+                    <span class="ui header post_title">{{post.title}}</span>
+                    <span class="post_author">By <a :href="'#/blog/'+post.username"> {{post.username}}</a></span>
+                    <span class="post_date">{{this.parseDate(post.CreatedAt)}}</span>
+                    <a :href="'/#'+post.createURL()+'/edit'" v-if="post.username == $store.state.username">Edit <span
+                            class="post_edit"><i
+                            class="edit icon"></i></span></a>
+
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="ui main text post_content" v-html="post.body">
+                No Content :(
+            </div>
+            <rating v-if="post" :post="post"></rating>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    <comments v-if="post" :post="post"></comments>
+</div>
