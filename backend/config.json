@@ -1,0 +1,11 @@
+{
+  "database": {
+    "host": "localhost",
+    "password": "",
+    "dbname": "unblog",
+    "username": "tganz"
+  },
+  "token_password": "thisIsTheJwtSecretPassword",
+  "port": "8000",
+  "data_folder": "./data/"
+}
